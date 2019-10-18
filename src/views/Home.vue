@@ -1,24 +1,20 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-    <button @click="handleBtnClick">按钮</button>
     <nut-button @click="handleBtnClick">
       去结算
     </nut-button>
-    <footer></footer>
-    <p class="fontsize">font-sise</p>
+    <tsToolBar></tsToolBar>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import tsToolBar from "@components/tsToolBar.vue";
 
 export default {
   name: "home",
   components: {
-    HelloWorld
+    tsToolBar
   },
   data() {
     return {};
