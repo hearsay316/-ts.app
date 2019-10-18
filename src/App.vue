@@ -1,10 +1,14 @@
 <template>
   <div id="app">
     <router-view />
+    <p>dswdwd</p>
   </div>
 </template>
 
 <style lang="stylus">
+@import "assets/css/style.styl"
+p
+  font-size px2rem(16)
 #app
   font-family 'Avenir', Helvetica, Arial, sans-serif
   -webkit-font-smoothing antialiased

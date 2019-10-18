@@ -7,6 +7,7 @@
       去结算
     </nut-button>
     <footer></footer>
+    <p class="fontsize">font-sise</p>
   </div>
 </template>
 

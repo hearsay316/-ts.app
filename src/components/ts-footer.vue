@@ -1,13 +1,13 @@
 <template>
-  <div class="ts-footer"></div>
+  <div class="ts-footer">
+    jj
+  </div>
 </template>
 
 <script lang="tsx">
 import { Vue, Component } from "vue-property-decorator";
 @Component
-export default class tsFooter extends Vue {
-  name: "ts-footer";
-}
+export default class tsFooter extends Vue {}
 </script>
 
 <style scoped></style>
