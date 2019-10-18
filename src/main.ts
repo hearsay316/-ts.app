@@ -3,9 +3,11 @@ import App from "./App.vue";
 import "./registerServiceWorker";
 import router from "./router";
 import store from "./store";
-
+import "@config/nutui/index.ts";
+import "@config/vue-rx/index.ts";
+import "@config/js/htmlFontSize.js";
+import "@css/style.styl";
 Vue.config.productionTip = false;
-
 new Vue({
   router,
   store,

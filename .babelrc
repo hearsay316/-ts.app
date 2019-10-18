@@ -1,0 +1,10 @@
+{
+  "plugins": [
+    [
+      "@nutui/babel-plugin-separate-import",
+      {
+        "style": "css"
+      }
+    ]
+  ]
+}
