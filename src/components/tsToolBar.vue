@@ -31,6 +31,12 @@ export default class tsFooter extends Vue {
     {
       nIcon: require("@img/shopping-n.svg"),
       hIcon: require("@img/shopping-h.svg"),
+      name: "分类",
+      componentName: "classify"
+    },
+    {
+      nIcon: require("@img/shopping-n.svg"),
+      hIcon: require("@img/shopping-h.svg"),
       name: "购物车",
       componentName: "shopping"
     },
