@@ -3,11 +3,13 @@
     <nut-button @click="handleBtnClick">
       去结算
     </nut-button>
-    <tsToolBar></tsToolBar>
+    <tsToolBar @onChangFragment="onChangFragment"></tsToolBar>
   </div>
 </template>
 
 <script>
+/* eslint-disable no-console */
+
 // @ is an alias to /src
 import tsToolBar from "@components/tsToolBar.vue";
 
@@ -27,6 +29,10 @@ export default {
         bottom: 40, //展示在页面底部时，距底部的距离（px)
         textAlignCenter: true //多行文本是否居中展示，值为false时单行居中，多行居左
       });
+    },
+    onChangFragment(item) {
+      let { componentName } = item;
+      console.log(componentName);
     }
   }
 };
