@@ -12,7 +12,7 @@ module.exports = {
             "@css": path.resolve(__dirname, "./src/assets/css"),
             "@view": path.resolve(__dirname, "./src/view"),
             "@img": path.resolve(__dirname, "./src/assets/img"),
-            "@components": path.resolve(__dirname, "./src/components")
+            "@com": path.resolve(__dirname, "./src/components")
           }
         }
       };

@@ -53,7 +53,7 @@ export default class tsFooter extends Vue {
       componentName: "my"
     }
   ];
-  onChangFragment(item, index) {
+  onChangFragment(item: object, index: number) {
     this.selectItemIndex = index;
     this.$emit("onChangFragment", item);
   }

@@ -1,8 +1,7 @@
 <template>
   <div class="home">
-    <nut-button @click="handleBtnClick">
-      去结算
-    </nut-button>
+    <Slider></Slider>
+    <component :is="componoentId"></component>
     <tsToolBar @onChangFragment="onChangFragment"></tsToolBar>
   </div>
 </template>
@@ -11,15 +10,23 @@
 /* eslint-disable no-console */
 
 // @ is an alias to /src
-import tsToolBar from "@components/tsToolBar.vue";
+import tsToolBar from "@com/tsToolBar.vue";
 
 export default {
   name: "home",
   components: {
-    tsToolBar
+    tsToolBar: tsToolBar,
+    my: () => import("@com/my"),
+    shopping: () => import("@com/shopping"),
+    classify: () => import("@com/classify"),
+    Slider: () => import("@com/Slider.vue")
   },
   data() {
-    return {};
+    return {
+      componoentId: "my",
+      name: "home",
+      first: "my"
+    };
   },
   methods: {
     handleBtnClick() {
@@ -32,8 +39,20 @@ export default {
     },
     onChangFragment(item) {
       let { componentName } = item;
-      console.log(componentName);
+      //this.componoentId = componentName;
+      console.log(this);
+      return this.name === componentName
+        ? (this.componoentId = this.first)
+        : (this.componoentId = componentName);
     }
   }
 };
 </script>
+<style lang="stylus" scoped>
+.home
+  width:100%
+  height:100%
+  display flex
+  flex-direction column
+  font-size 32px;
+</style>
