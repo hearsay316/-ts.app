@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <Slider></Slider>
+    <Slider :pices="picData"></Slider>
     <component :is="componoentId"></component>
     <tsToolBar @onChangFragment="onChangFragment"></tsToolBar>
   </div>
@@ -25,7 +25,8 @@ export default {
     return {
       componoentId: "my",
       name: "home",
-      first: "my"
+      first: "my",
+      picData: ["这个是第一", "这个是第二", "这个是第三"]
     };
   },
   methods: {

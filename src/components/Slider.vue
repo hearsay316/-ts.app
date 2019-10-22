@@ -4,9 +4,9 @@
     <!-- Additional required wrapper -->
     <div class="swiper-wrapper">
       <!-- Slides -->
-      <div class="swiper-slide">Slide 1</div>
-      <div class="swiper-slide">Slide 2</div>
-      <div class="swiper-slide">Slide 3</div>
+      <div class="swiper-slide" v-for="(item, index) of pices" :key="index">
+        {{ item }}
+      </div>
     </div>
     <!-- If we need pagination -->
     <div class="swiper-pagination"></div>
@@ -26,6 +26,12 @@ import Swiper from "swiper";
 
 export default {
   name: "Slider",
+  props: {
+    pices: {
+      type: Array,
+      required: true
+    }
+  },
   mounted() {
     mySwiper = new Swiper(".swiper-container", {
       // Optional parameters
