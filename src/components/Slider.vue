@@ -54,6 +54,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+
 .swiper-container {
     width: 100%;
     height: 300px;
