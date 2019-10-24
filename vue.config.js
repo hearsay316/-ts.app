@@ -1,4 +1,6 @@
 const path = require("path");
+const SkeletonWebpackPlugin = require("vue-skeleton-webpack-plugin");
+const prerenderSpaPlugin = require("prerender-spa-plugin");
 module.exports = {
   configureWebpack: config => {
     if (process.env.NODE_ENV === "production") {
@@ -8,6 +10,25 @@ module.exports = {
     }
 
     return {
+      // externals: {
+      //   rxjs: "rxjs",
+      //   vue: "Vue",
+      //   "vue-rx": "VueRx",
+      //   "@nutui/nutui": "NutUI"
+      // },
+      plugins: [
+        new SkeletonWebpackPlugin({
+          webpackConfig: {
+            entry: {
+              app: path.resolve("./src/config/entry.js")
+            }
+          }
+        }),
+        new prerenderSpaPlugin({
+          staticDir: path.join(__dirname, "dist"),
+          routes: ["/", "/about"]
+        })
+      ],
       resolve: {
         alias: {
           "@config": path.resolve(__dirname, "./src/config"),
@@ -20,3 +41,23 @@ module.exports = {
     };
   }
 };
+/*{
+  webpackConfig: {
+    entry: {
+      app: path.join((__dirname, "./scr/skeleton.js"))
+    },
+    router: {
+      mode: "history",
+          routes: [
+        {
+          path: "/",
+          skeletonId: "skeleton1"
+        },
+        {
+          path: "/about",
+          skeletonId: "skeleton2"
+        }
+      ]
+    }
+  }
+}*/

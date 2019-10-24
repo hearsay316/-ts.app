@@ -1,12 +1,25 @@
 <template>
   <div class="my">
     my
+    <nut-button>
+      Button
+    </nut-button>
+    <myLib :user="user"></myLib>
   </div>
 </template>
 
 <script>
+import myLib from "app/dist/myLib.umd.min.js";
 export default {
-  name: "my"
+  name: "my",
+  data() {
+    return {
+      user: Array.from({ length: 1000 }).map((v, k) => k)
+    };
+  },
+  components: {
+    myLib
+  }
 };
 </script>
 
