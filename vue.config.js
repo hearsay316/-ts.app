@@ -10,12 +10,12 @@ module.exports = {
     }
 
     return {
-      // externals: {
-      //   rxjs: "rxjs",
-      //   vue: "Vue",
-      //   "vue-rx": "VueRx",
-      //   "@nutui/nutui": "NutUI"
-      // },
+      externals: {
+        rxjs: "rxjs",
+        vue: "Vue",
+        "vue-rx": "VueRx",
+        "@nutui/nutui": "NutUI"
+      },
       plugins: [
         new SkeletonWebpackPlugin({
           webpackConfig: {
