@@ -2,7 +2,7 @@
   <div class="my">
     my
     <nut-button>
-      Button
+      Buttonrfrfrf
     </nut-button>
   </div>
 </template>
