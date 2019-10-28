@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <Slider :pices="picData"></Slider>
     <component :is="componoentId"></component>
     <tsToolBar @onChangFragment="onChangFragment"></tsToolBar>
   </div>
@@ -11,7 +10,7 @@
 
 // @ is an alias to /src
 import tsToolBar from "@com/tsToolBar.vue";
-
+import Index from "@com/Index.vue";
 export default {
   name: "home",
   components: {
@@ -19,14 +18,13 @@ export default {
     my: () => import("@com/my"),
     shopping: () => import("@com/shopping"),
     classify: () => import("@com/classify"),
-    Slider: () => import("@com/Slider.vue")
+    Index: () => import("@com/Index.vue")
   },
   data() {
     return {
-      componoentId: "my",
+      componoentId: "index",
       name: "home",
-      first: "my",
-      picData: ["这个是第一", "这个是第二", "这个是第三"]
+      first: "my"
     };
   },
   methods: {
@@ -41,10 +39,8 @@ export default {
     onChangFragment(item) {
       let { componentName } = item;
       //this.componoentId = componentName;
-      console.log(this);
-      return this.name === componentName
-        ? (this.componoentId = this.first)
-        : (this.componoentId = componentName);
+      console.log(this, componentName);
+      this.componoentId = componentName;
     }
   }
 };

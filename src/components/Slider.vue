@@ -5,7 +5,7 @@
     <div class="swiper-wrapper">
       <!-- Slides -->
       <div class="swiper-slide" v-for="(item, index) of pices" :key="index">
-        {{ item }}
+        <img class="swiper-slide-img" :src="item" alt="item" />
       </div>
     </div>
     <!-- If we need pagination -->
@@ -22,8 +22,6 @@
 
 <script>
 let mySwiper;
-import Swiper from "swiper";
-
 export default {
   name: "Slider",
   props: {
@@ -37,10 +35,16 @@ export default {
       // Optional parameters
       // direction: "vertical",
       loop: true,
+      // autoplay: {
+      //   delay: 2500,
+      //   disableOnInteraction: false
+      // },
 
       // If we need pagination
       pagination: {
-        el: ".swiper-pagination"
+        el: ".swiper-pagination",
+        clickable: true,
+        bulletClass: "custom-bullet-class"
       },
 
       // Navigation arrows
@@ -49,14 +53,28 @@ export default {
         prevEl: ".swiper-button-prev"
       }
     });
+    // eslint-disable-next-line no-console
+    console.log(25588);
   }
 };
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus">
   @import "~@css/style.styl"
 .swiper-container {
     width: 100%;
-    height: px2rem(300);
 }
+  .swiper-slide-img
+    width 100%
+    height:100%
+  .custom-bullet-class{
+    box-sizing: border-box;
+    border-radius: 7px;
+    height: 3px;
+    width: 8px;
+    background: hsla(0,0%,92.9%,.4);
+    margin: 0 2px;
+    display: inline-block;
+    opacity: 1;
+  }
 </style>

@@ -1,6 +1,9 @@
 const path = require("path");
 const SkeletonWebpackPlugin = require("vue-skeleton-webpack-plugin");
 const prerenderSpaPlugin = require("prerender-spa-plugin");
+//const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+// .BundleAnalyzerPlugin;
+
 module.exports = {
   configureWebpack: config => {
     if (process.env.NODE_ENV === "production") {
@@ -13,7 +16,10 @@ module.exports = {
       externals: {
         rxjs: "rxjs",
         vue: "Vue",
-        "vue-rx": "VueRx"
+        "vue-rx": "VueRx",
+        vuex: "Vuex",
+        "vue-router": "VueRouter",
+        swiper: "Swiper"
       },
       plugins: [
         new SkeletonWebpackPlugin({
@@ -26,7 +32,8 @@ module.exports = {
         new prerenderSpaPlugin({
           staticDir: path.join(__dirname, "dist"),
           routes: ["/", "/about"]
-        })
+        }) //,
+        //  new BundleAnalyzerPlugin()
       ],
       resolve: {
         alias: {

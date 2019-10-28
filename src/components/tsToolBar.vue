@@ -32,7 +32,7 @@ export default class tsFooter extends Vue {
       nIcon: require("@img/home-n.svg"),
       hIcon: require("@img/home-h.svg"),
       name: "首页",
-      componentName: "home"
+      componentName: "Index"
     },
     {
       nIcon: require("@img/shopping-n.svg"),
