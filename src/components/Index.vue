@@ -31,4 +31,8 @@ export default {
 <style lang="stylus" scoped>
 .index
     height:100%
+    >>>.swiper-pagination-bullet-active {
+        background: #ededed;
+        width: 12px;
+    }
 </style>

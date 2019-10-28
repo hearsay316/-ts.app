@@ -37,15 +37,16 @@ export default {
       // Optional parameters
       // direction: "vertical",
       loop: true,
-      autoplay: {
-        delay: 2500,
-        disableOnInteraction: false
-      },
+      // autoplay: {
+      //   delay: 2500,
+      //   disableOnInteraction: false
+      // },
 
       // If we need pagination
       pagination: {
         el: ".swiper-pagination",
-        clickable: true
+        clickable: true,
+        bulletClass: "custom-bullet-class"
       },
 
       // Navigation arrows
@@ -58,7 +59,7 @@ export default {
 };
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus">
   @import "~@css/style.styl"
 .swiper-container {
     width: 100%;
@@ -66,4 +67,14 @@ export default {
   .swiper-slide-img
     width 100%
     height:48%
+  .custom-bullet-class{
+    box-sizing: border-box;
+    border-radius: 7px;
+    height: 3px;
+    width: 8px;
+    background: hsla(0,0%,92.9%,.4);
+    margin: 0 2px;
+    display: inline-block;
+    opacity: 1;
+  }
 </style>

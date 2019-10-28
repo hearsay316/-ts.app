@@ -1,8 +1,8 @@
 import Vue from "vue";
 import App from "./App.vue";
 import "./registerServiceWorker";
-import router from "./router";
-import store from "./store";
+import router from "@/router/index.ts";
+import store from "@/store/index.ts";
 //import "@config/nutui/index.ts";
 import "@config/vue-rx/index.ts";
 import "@config/js/htmlFontSize.js";

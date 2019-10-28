@@ -13,7 +13,9 @@ module.exports = {
       externals: {
         rxjs: "rxjs",
         vue: "Vue",
-        "vue-rx": "VueRx"
+        "vue-rx": "VueRx",
+        vuex: "Vuex",
+        "vue-router": "VueRouter"
       },
       plugins: [
         new SkeletonWebpackPlugin({
