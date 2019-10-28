@@ -5,7 +5,7 @@
     <div class="swiper-wrapper">
       <!-- Slides -->
       <div class="swiper-slide" v-for="(item, index) of pices" :key="index">
-        {{ item }}
+        <img class="swiper-slide-img" :src="item" alt="item" />
       </div>
     </div>
     <!-- If we need pagination -->
@@ -37,10 +37,15 @@ export default {
       // Optional parameters
       // direction: "vertical",
       loop: true,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false
+      },
 
       // If we need pagination
       pagination: {
-        el: ".swiper-pagination"
+        el: ".swiper-pagination",
+        clickable: true
       },
 
       // Navigation arrows
@@ -57,6 +62,8 @@ export default {
   @import "~@css/style.styl"
 .swiper-container {
     width: 100%;
-    height: px2rem(300);
 }
+  .swiper-slide-img
+    width 100%
+    height:48%
 </style>

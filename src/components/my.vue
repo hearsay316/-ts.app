@@ -1,6 +1,6 @@
 <template>
   <div class="my">
-    mygtgtgt
+    my
     <nut-button>
       Button
     </nut-button>
