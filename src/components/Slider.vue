@@ -22,8 +22,6 @@
 
 <script>
 let mySwiper;
-import Swiper from "swiper";
-
 export default {
   name: "Slider",
   props: {
@@ -55,6 +53,8 @@ export default {
         prevEl: ".swiper-button-prev"
       }
     });
+    // eslint-disable-next-line no-console
+    console.log(25588);
   }
 };
 </script>

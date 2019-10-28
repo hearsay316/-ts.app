@@ -10,7 +10,7 @@
 
 // @ is an alias to /src
 import tsToolBar from "@com/tsToolBar.vue";
-
+import Index from "@com/Index.vue";
 export default {
   name: "home",
   components: {
@@ -18,7 +18,6 @@ export default {
     my: () => import("@com/my"),
     shopping: () => import("@com/shopping"),
     classify: () => import("@com/classify"),
-    Slider: () => import("@com/Slider.vue"),
     Index: () => import("@com/Index.vue")
   },
   data() {

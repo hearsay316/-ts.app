@@ -1,6 +1,7 @@
 <template>
   <div class="index">
     <Slider :pices="picData"></Slider>
+    <div>5555555555555555555555</div>
   </div>
 </template>
 
