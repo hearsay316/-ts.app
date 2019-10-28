@@ -1,3 +1,4 @@
+<!--suppress ALL -->
 <template>
   <div class="index">
     <Slider class="index-picData" :pices="picData"></Slider>
