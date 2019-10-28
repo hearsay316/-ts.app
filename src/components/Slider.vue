@@ -66,7 +66,7 @@ export default {
 }
   .swiper-slide-img
     width 100%
-    height:48%
+    height:100%
   .custom-bullet-class{
     box-sizing: border-box;
     border-radius: 7px;

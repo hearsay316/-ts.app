@@ -1,6 +1,6 @@
 <template>
   <div class="index">
-    <Slider :pices="picData"></Slider>
+    <Slider class="index-picData" :pices="picData"></Slider>
     <div>5555555555555555555555</div>
   </div>
 </template>
@@ -32,6 +32,10 @@ export default {
 <style lang="stylus" scoped>
 .index
     height:100%
+.index-picData{
+  height:48%
+}
+
     >>>.swiper-pagination-bullet-active {
         background: #ededed;
         width: 12px;

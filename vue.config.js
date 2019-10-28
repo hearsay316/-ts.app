@@ -1,8 +1,8 @@
 const path = require("path");
 const SkeletonWebpackPlugin = require("vue-skeleton-webpack-plugin");
 const prerenderSpaPlugin = require("prerender-spa-plugin");
-const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
-  .BundleAnalyzerPlugin;
+//const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+// .BundleAnalyzerPlugin;
 
 module.exports = {
   configureWebpack: config => {
@@ -32,8 +32,8 @@ module.exports = {
         new prerenderSpaPlugin({
           staticDir: path.join(__dirname, "dist"),
           routes: ["/", "/about"]
-        }),
-        new BundleAnalyzerPlugin()
+        }) //,
+        //  new BundleAnalyzerPlugin()
       ],
       resolve: {
         alias: {

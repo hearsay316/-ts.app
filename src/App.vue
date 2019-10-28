@@ -1,11 +1,14 @@
 <template>
-  <div id="app">
+  <div id="app" v-cloak>
     <router-view />
   </div>
 </template>
 
 <style lang="stylus">
 @import "assets/css/style.styl"
+[v-cloak] {
+  display: none;
+}
 p
   font-size px2rem(16)
 #app
