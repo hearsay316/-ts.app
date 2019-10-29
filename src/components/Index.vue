@@ -35,10 +35,11 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+  @import "~@css/style.styl"
 .index
     height:100%
 .index-picData{
-  height:48%
+  height:swiperHeigth
 }
 >>>.swiper-pagination-bullet-active {
     background: #ededed;
