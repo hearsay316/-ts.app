@@ -15,12 +15,7 @@ class AjaxRequest {
   setInterceptor(instance, url) {
     instance.interceptors.request.use(config => {
       if (Object.keys(this.queue).length === 0) {
-        //   store.commit("ShowLoading");
-        let loading = document.getElementById("loading");
-
-        loading
-          ? (loading.style.display = "block")
-          : (this.loading = app.$toast.loading());
+        this.loading = app.$toast.loading();
       }
       this.queue[url] = url;
       // eslint-disable-next-line no-console
@@ -32,23 +27,27 @@ class AjaxRequest {
       res => {
         delete this.queue[url];
         if (Object.keys(this.queue).length === 0) {
-          // eslint-disable-next-line no-console
-          console.log(this.loading, 111111);
           this.loading ? this.loading.hide() : void 0;
           loading
-            ? [...loading].forEach(item => (item.style.display = "none"))
+            ? loading.length
+              ? Array.from(loading).forEach((item, index, arr) =>
+                  document.body.removeChild(arr[index])
+                )
+              : document.body.removeChild(loading)
             : void 0;
         }
-        return res;
+        return res && res.data;
       },
       error => {
         delete this.queue[url];
         if (Object.keys(this.queue).length === 0) {
-          // eslint-disable-next-line no-console
-          console.log(this.loading, 222222);
           this.loading ? this.loading.hide() : void 0;
           loading
-            ? [...loading].forEach(item => (item.style.display = "none"))
+            ? loading.length
+              ? Array.from(loading).forEach((item, index, arr) =>
+                  document.body.removeChild(arr[index])
+                )
+              : document.body.removeChild(loading)
             : void 0;
           //store.commit("HideLoading");
         }

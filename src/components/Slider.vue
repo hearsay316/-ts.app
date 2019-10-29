@@ -1,11 +1,15 @@
 <template>
   <!-- Slider main container -->
-  <div class="swiper-container">
+  <div class="swiper-container" v-if="pices.length > 0">
     <!-- Additional required wrapper -->
     <div class="swiper-wrapper">
       <!-- Slides -->
-      <div class="swiper-slide" v-for="(item, index) of pices" :key="index">
-        <img class="swiper-slide-img" :src="item" alt="item" />
+      <div
+        class="swiper-slide"
+        v-for="(item, index) of pices"
+        :key="item.id + index"
+      >
+        <img class="swiper-slide-img" :src="item.icon" alt="item" />
       </div>
     </div>
     <!-- If we need pagination -->
@@ -21,7 +25,6 @@
 </template>
 
 <script>
-let mySwiper;
 export default {
   name: "Slider",
   props: {
@@ -30,31 +33,48 @@ export default {
       required: true
     }
   },
-  mounted() {
-    mySwiper = new Swiper(".swiper-container", {
-      // Optional parameters
-      // direction: "vertical",
-      loop: true,
-      // autoplay: {
-      //   delay: 2500,
-      //   disableOnInteraction: false
-      // },
-
-      // If we need pagination
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-        bulletClass: "custom-bullet-class"
+  watch: {
+    pices: {
+      handler(val, oldVal) {
+        // eslint-disable-next-line no-console
+        console.log(val, oldVal);
+        if (val.length > 0) {
+          this.mySwiper();
+        }
       },
+      immediate: true
+    }
+  },
+  methods: {
+    mySwiper() {
+      this.$nextTick(() => {
+        let mySwiper = new Swiper(".swiper-container", {
+          // Optional parameters
+          // direction: "vertical",
+          loop: true,
+          autoplay: {
+            delay: 2500,
+            disableOnInteraction: false
+          },
+          // If we need pagination
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+            bulletClass: "custom-bullet-class"
+          },
 
-      // Navigation arrows
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev"
-      }
-    });
+          // Navigation arrows
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev"
+          }
+        });
+      });
+    }
+  },
+  mounted() {
     // eslint-disable-next-line no-console
-    console.log(25588);
+    console.log(this.pices.length);
   }
 };
 </script>
