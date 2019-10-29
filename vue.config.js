@@ -22,18 +22,19 @@ module.exports = {
         swiper: "Swiper"
       },
       plugins: [
+        new prerenderSpaPlugin({
+          staticDir: path.join(__dirname, "dist"),
+          routes: ["/", "/about"]
+        }), //,
+        //  new BundleAnalyzerPlugin()
+
         new SkeletonWebpackPlugin({
           webpackConfig: {
             entry: {
               app: path.resolve("./src/config/entry.js")
             }
           }
-        }),
-        new prerenderSpaPlugin({
-          staticDir: path.join(__dirname, "dist"),
-          routes: ["/", "/about"]
-        }) //,
-        //  new BundleAnalyzerPlugin()
+        })
       ],
       resolve: {
         alias: {
