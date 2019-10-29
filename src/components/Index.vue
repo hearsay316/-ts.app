@@ -8,6 +8,7 @@
 
 <script>
 import Slider from "@com/Slider";
+import { GetSwiper } from "../config/ajax/IndexApi.js";
 export default {
   name: "Index",
   data() {
@@ -24,6 +25,18 @@ export default {
       ]
     };
   },
+  mounted() {
+    // eslint-disable-next-line no-console
+    console.log(this.$toast);
+    GetSwiper()
+      .then(data => {
+        // eslint-disable-next-line no-console
+        console.log(data);
+      })
+      .catch();
+    // eslint-disable-next-line no-console
+    console.log(GetSwiper());
+  },
   components: {
     Slider
   }
@@ -36,9 +49,8 @@ export default {
 .index-picData{
   height:48%
 }
-
-    >>>.swiper-pagination-bullet-active {
-        background: #ededed;
-        width: 12px;
-    }
+>>>.swiper-pagination-bullet-active {
+    background: #ededed;
+    width: 12px;
+}
 </style>
