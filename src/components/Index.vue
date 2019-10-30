@@ -1,7 +1,8 @@
 <!--suppress ALL -->
+
 <template>
   <div class="index">
-    <Slider class="index-picData" :pices="picData"></Slider>
+    <slider class="index-picData" :pices="picData"></slider>
     <activity>
       <div class="activity-520">
         <img
@@ -13,14 +14,21 @@
         />
       </div>
     </activity>
+    <modeOptions></modeOptions>
+    <seconds :scendDatas="scendDatas"></seconds>
   </div>
 </template>
 
 <script>
-import Slider from "@com/Slider";
+import slider from "@com/slider";
 import activity from "@com/activity.vue";
-
-import { ToSwiperPic, ToActivityPic } from "../config/ajax/IndexApi.js";
+import modeOptions from "@com/modeOptions.vue";
+import seconds from "@com/seconds.vue";
+import {
+  ToSwiperPic,
+  ToActivityPic,
+  ToSeconds
+} from "../config/ajax/IndexApi.js";
 export default {
   name: "Index",
   methods: {},
@@ -28,30 +36,38 @@ export default {
     return {
       lodings: "",
       picData: [],
-      activityDatas: []
+      activityDatas: [],
+      scendDatas: []
     };
   },
   mounted() {
-    ToSwiperPic()
-      .then(res => {
-        let {
-          stata,
-          data: { list }
-        } = res;
-        this.picData = list;
-      })
-      .catch(error => {});
-    ToActivityPic().then(res => {
-      let {
-        stata,
-        data: { list }
-      } = res;
-      this.activityDatas = list;
-    });
+    this.init();
+  },
+  /* eslint-disable */
+  methods: {
+    init() {
+      Promise.all([ToSwiperPic(), ToActivityPic(), ToSeconds()])
+        .then(([resSwiper, resActivity, resSeconds]) =>
+          resSwiper.state === 0 &&
+          resActivity.state === 0 &&
+          resSeconds.state === 0
+            ? ((this.picData = resSwiper.data.list),
+              (this.activityDatas = resActivity.data.list),
+              (this.scendDatas = resSeconds.data.list))
+            : this.$toast.text("错误")
+        )
+        .catch(e => {
+          // eslint-disable-next-line no-console
+          console.log(e);
+          this.$toast.text("错误");
+        });
+    }
   },
   components: {
-    Slider,
-    activity
+    slider,
+    activity,
+    modeOptions,
+    seconds
   }
 };
 </script>

@@ -12,6 +12,11 @@ export const ToActivityPic = () =>
     method: "get",
     url: "/activity"
   });
+export const ToSeconds = () =>
+  axios.request({
+    method: "get",
+    url: "/seconds "
+  });
 let a = {
   stata: 0,
   data: {

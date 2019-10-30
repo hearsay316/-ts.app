@@ -36,8 +36,6 @@ export default {
   watch: {
     pices: {
       handler(val, oldVal) {
-        // eslint-disable-next-line no-console
-        console.log(val, oldVal);
         if (val.length > 0) {
           this.mySwiper();
         }
@@ -71,10 +69,6 @@ export default {
         });
       });
     }
-  },
-  mounted() {
-    // eslint-disable-next-line no-console
-    console.log(this.pices.length);
   }
 };
 </script>
