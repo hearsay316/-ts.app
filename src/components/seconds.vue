@@ -3,10 +3,7 @@
     <div class="seconds-wrap">
       <p class="seconds-wrap-title">京东秒杀</p>
       <!--      倒计时模块-->
-      <div class="count-down">
-        <span class="count-down-time"></span>
-        <span class="count-down-desc"></span>
-      </div>
+      <div class="count-down"></div>
     </div>
     <div class="seconds-content">
       <div class="seconds-content-item" v-for="item of scendDatas" :key="item">
@@ -15,8 +12,12 @@
           :src="item.icon"
           alt="item.icon"
         />
-        <p class="seconds-content-item-price">{{ item.price }}</p>
-        <p class="seconds-content-item-oldPrice">{{ item.oldPrice }}</p>
+        <p class="seconds-content-item-price">
+          ￥{{ item.price | priceValue }}
+        </p>
+        <p class="seconds-content-item-oldPrice">
+          ￥{{ item.oldPrice | priceValue }}
+        </p>
       </div>
     </div>
   </div>
@@ -64,7 +65,7 @@ export default {
   height:px2rem(66)
 }
 .seconds-content-item-price{
-  color marginColor
+  color mainColor
   font-size titleSize
   margin-top px2rem(4)
 }
