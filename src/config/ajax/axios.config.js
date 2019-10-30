@@ -18,8 +18,6 @@ class AjaxRequest {
         this.loading = app.$toast.loading();
       }
       this.queue[url] = url;
-      // eslint-disable-next-line no-console
-      console.log(config.headers);
       return config;
     });
     // 响应拦截

@@ -46,6 +46,7 @@ export default {
 };
 </script>
 <style lang="stylus" scoped>
+  @import "~@css/style.styl"
 .home
   width:100%
   height:100%
