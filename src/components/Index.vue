@@ -2,7 +2,9 @@
 
 <template>
   <div class="index">
+    <!--轮播图-->
     <slider class="index-picData" :pices="picData"></slider>
+    <!--    -->
     <activity>
       <div class="activity-520">
         <img
@@ -14,8 +16,21 @@
         />
       </div>
     </activity>
+    <!--    功能模块-->
     <modeOptions></modeOptions>
+    <!--    秒杀模块-->
     <seconds :scendDatas="scendDatas"></seconds>
+    <!--    拼购节日-->
+    <activity>
+      <!--       eslint-disable -->
+      <div class="activity-festival">
+        <img
+          class="activity-festival-icon"
+          src="http://imooc.hybrid.lgdsunday.club/img/pinGouJie.a976e93f.gif"
+          alt="pingouJie"
+        />
+      </div>
+    </activity>
   </div>
 </template>
 
@@ -77,6 +92,8 @@ export default {
 .index
     height:100%
     background-color lineColor
+    overflow hidden
+    overflow-y auto
 .index-picData{
   height:swiperHeigth
 }
@@ -92,5 +109,12 @@ export default {
   .activity-520-img{
       display inline-block
       width  33.33%
+  }
+  .activity-festival{
+      background-color white
+      margin-top marginSize
+  }
+  .activity-festival-icon{
+       width:100%
   }
 </style>
