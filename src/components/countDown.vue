@@ -6,7 +6,6 @@
 </template>
 
 <script>
-let usrrt = 1235;
 /***
  * 能力:传递给组件一个活动开始时间,组件根据这个时间去进行计算.
  * 1 当前时间未到开始的时候: 展示倒计时
@@ -31,9 +30,9 @@ export default {
       diffSeconds: 0
     };
   },
-  created() {
-    this.computedSurplusTime();
-  },
+  // created() {
+  //   this.computedSurplusTime();
+  // },
   destroyed() {
     // eslint-disable-next-line no-console
     console.log("over");
@@ -72,15 +71,18 @@ export default {
   watch: {
     diffSeconds(newValue, oldValue) {
       const hours = Math.floor(newValue / 3600);
-      const minutes = Math.floor(newValue / 3600) % 60;
+      const minutes = Math.floor(newValue / 60) % 60;
       const seconds = newValue % 60;
       this.surplus = hours + ":" + minutes + ":" + seconds;
       if (newValue === 0) {
         this.computedSurplusTime();
       }
     },
-    endHours() {
-      this.computedSurplusTime();
+    endHours: {
+      handler(newValue) {
+        this.computedSurplusTime();
+      },
+      immediate: true
     }
   }
 };
