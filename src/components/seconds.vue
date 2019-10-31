@@ -64,8 +64,8 @@ export default {
 }
   .scroll-y{
     overflow hidden
-    padding-bottom  6px
-    height: calc(3.36rem - 6px);
+    padding-bottom  15px
+    height: calc(3.36rem - 15px);
   }
 .seconds-content{
   box-sizing border-box
@@ -73,7 +73,7 @@ export default {
   display flex
   overflow hidden
   overflow-x scroll
-  height:calc(3.36rem + 6px)
+  height:calc(3.36rem + 15px)
 }
 .seconds-content-item{
   padding 0 px2rem(2)
