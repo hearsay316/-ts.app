@@ -12,10 +12,13 @@ Vue.filter("priceValue", function(value) {
   return result.toFixed(2);
 });
 
-Vue.filter("filterTime",function (value) {
+Vue.filter("filterTime", function(value) {
   if (!value) return "";
-  if(value.indexOf(":")===-1){
+  if (value.indexOf(":") === -1) {
     return value;
   }
-  return value.split(":").map(item=>parseInt(item)<10?"0"+item:item).join(":")
+  return value
+    .split(":")
+    .map(item => (parseInt(item) < 10 ? "0" + item : item))
+    .join(":");
 });
