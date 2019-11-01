@@ -17,6 +17,11 @@ export const ToSeconds = () =>
     method: "get",
     url: "/seconds "
   });
+export const ToGoods = () =>
+  axios.request({
+    method: "get",
+    url: "/goods "
+  });
 let a = {
   stata: 0,
   data: {

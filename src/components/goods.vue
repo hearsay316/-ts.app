@@ -1,11 +1,94 @@
 <template>
-  <div class="goods"></div>
+  <div class="goods goods-waterfall">
+    <div
+      class="goods-item goods-waterfall-item"
+      v-for="(item, index) in dataSource"
+      :key="index"
+    >
+      <img class="goods-item-img" :src="item.img" alt="item.img" />
+      <div class="goods-item-desc">
+        <p class="goods-item-desc-name">
+          <span class="text-line-2">{{ item.name }}</span>
+        </p>
+        <div class="goods-item-desc-data">
+          <!--suppress JSUnresolvedVariable -->
+          <p class="goods-item-desc-data-price">
+            {{ item.price | priceValue }}
+          </p>
+          <p class="goods-item-desc-data-volume">销量:{{ item.volume }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
+import { ToGoods } from "../config/ajax/IndexApi";
+
 export default {
-  name: "goods"
+  name: "goods",
+  data() {
+    return {
+      dataSource: []
+    };
+  },
+  created() {
+    /**获取数据
+     * **/
+    ToGoods().then(res => {
+      // eslint-disable-next-line no-console
+      console.log(res);
+      this.dataSource = res.data.list;
+      // eslint-disable-next-line no-console
+      console.log(this.dataSource);
+    });
+  }
 };
 </script>
 
-<style scoped></style>
+<style lang="stylus" scoped>
+@import "~@css/style.styl"
+.goods{
+  background-color bgColor
+}
+  .goods-item{
+    background-color white
+    padding marginSize
+    box-sizing border-box
+  }
+  .goods-item-desc{
+    width:100%
+  }
+  .goods-item-desc-name{
+    font-size infoSize
+    line-height px2rem(18)
+  }
+  .goods-item-desc-data{
+    width:100%
+    display flex
+    align-items center
+    justify-content space-between
+    margin-top marginSize
+  }
+  .goods-item-desc-data-price{
+    font-size titleSize
+    color marginColor
+    font-weight 500
+  }
+  .goods-item-desc-data-volume{
+    font-size infoSize
+    color hintColor
+  }
+  .goods-waterfall{
+    position relative
+    margin marginSize
+  }
+  .goods-waterfall-item{
+    position absolute
+    width:49%
+    border-radius radiusSize
+  }
+  .goods-item-img{
+    width:100%
+  }
+</style>

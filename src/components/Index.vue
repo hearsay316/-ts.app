@@ -31,6 +31,9 @@
         />
       </div>
     </activity>
+<!--    商品列表组件-->
+    <goods>
+    </goods>
   </div>
 </template>
 
@@ -39,6 +42,7 @@ import slider from "@com/slider";
 import activity from "@com/activity.vue";
 import modeOptions from "@com/modeOptions.vue";
 import seconds from "@com/seconds.vue";
+import goods from "@com/goods.vue";
 import {
   ToSwiperPic,
   ToActivityPic,
@@ -82,7 +86,8 @@ export default {
     slider,
     activity,
     modeOptions,
-    seconds
+    seconds,
+    goods
   }
 };
 </script>
