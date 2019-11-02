@@ -1,9 +1,16 @@
 <template>
-  <div class="goods goods-waterfall">
+  <div
+    class="goods goods-waterfall"
+    :style="{
+      heigth: goodsViewHeight
+    }"
+  >
     <div
       class="goods-item goods-waterfall-item"
+      ref="goodsItem"
       v-for="(item, index) in dataSource"
       :key="index"
+      :style="goodsItemStyle[i]"
     >
       <img
         class="goods-item-img"
@@ -39,7 +46,10 @@ export default {
       // 最小高度
       MAX_IMG_HEIGHT: 230,
       MIN_IMG_HEIGHT: 178,
-      imgStyles: []
+      imgStyles: [],
+      ITEM_MARGIN_SIZE: 8,
+      goodsItemStyle: [],
+      goodsViewHeight: 0
     };
   },
   methods: {
@@ -59,9 +69,36 @@ export default {
           height: imgHeigth
         });
       });
+    },
+    initWaterfall() {
+      let $goodItem = this.$refs.goodsItem;
+      if (!$goodsItem) return;
+      $goodItem.forEach(($el, index) => {
+        let leftHeightTotal = 0,
+          rigthHeightTotal = 0,
+          goodsItemStyle = {};
+        let elHeight = $el.clientHeight + this.ITEM_MARGIN_SIZE;
+        if (leftHeightTotal > rigthHeightTotal) {
+          goodsItemStyle = {
+            left: "0px",
+            top: leftHightTotal + "px"
+          };
+          leftHeightTotal += elHeight;
+        } else {
+          goodsItemStyle = {
+            left: "0px",
+            top: rigthHeightTotal + "px"
+          };
+          rigthHeightTotal += elHeight;
+        }
+        this.goodsItemStyle.push(goodsItemStyle);
+      });
+      this.goodsViewHeight =
+        leftHeightTotal > rigthHeightTotal ? leftHeightTotal : rigthHeightTotal;
     }
   },
-  created() {
+  created() {},
+  mounted() {
     /**获取数据
      * **/
     ToGoods().then(res => {
@@ -70,6 +107,10 @@ export default {
       this.dataSource = res.data.list;
       // eslint-disable-next-line no-console
       console.log(this.dataSource);
+      this.initImgStyles();
+      this.$nextTick(() => {
+        this.initWaterfall();
+      });
     });
   }
 };
