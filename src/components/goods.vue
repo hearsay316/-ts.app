@@ -5,7 +5,12 @@
       v-for="(item, index) in dataSource"
       :key="index"
     >
-      <img class="goods-item-img" :src="item.img" alt="item.img" />
+      <img
+        class="goods-item-img"
+        :src="item.img"
+        alt="item.img"
+        :style="imgStyles[index]"
+      />
       <div class="goods-item-desc">
         <p class="goods-item-desc-name">
           <span class="text-line-2">{{ item.name }}</span>
@@ -29,8 +34,32 @@ export default {
   name: "goods",
   data() {
     return {
-      dataSource: []
+      dataSource: [],
+      //最大高度
+      // 最小高度
+      MAX_IMG_HEIGHT: 230,
+      MIN_IMG_HEIGHT: 178,
+      imgStyles: []
     };
+  },
+  methods: {
+    /**
+     * 生成随机的图片高度,随机生成样式
+     * **/
+    imgHeight() {
+      return Math.floor(
+        Math.random() * (this.MAX_IMG_HEIGHT - this.MIN_IMG_HEIGHT) +
+          this.MIN_IMG_HEIGHT
+      );
+    },
+    initImgStyles() {
+      this.dataSource.forEach(item => {
+        let imgHeigth = this.imgHeight() + "px";
+        this.imgStyles.push({
+          height: imgHeigth
+        });
+      });
+    }
   },
   created() {
     /**获取数据
