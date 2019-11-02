@@ -2,7 +2,7 @@
   <div
     class="goods goods-waterfall"
     :style="{
-      heigth: goodsViewHeight
+      Height: goodsViewHeight
     }"
   >
     <div
@@ -10,7 +10,7 @@
       ref="goodsItem"
       v-for="(item, index) in dataSource"
       :key="index"
-      :style="goodsItemStyle[i]"
+      :style="goodsItemStyle[index]"
     >
       <img
         class="goods-item-img"
@@ -71,30 +71,32 @@ export default {
       });
     },
     initWaterfall() {
-      let $goodItem = this.$refs.goodsItem;
+      let $goodsItem = this.$refs.goodsItem;
       if (!$goodsItem) return;
-      $goodItem.forEach(($el, index) => {
-        let leftHeightTotal = 0,
-          rigthHeightTotal = 0,
-          goodsItemStyle = {};
+      let leftHeightTotal = 0,
+        rightHeightTotal = 0;
+      $goodsItem.forEach(($el, index) => {
+        let goodsItemStyle = {};
         let elHeight = $el.clientHeight + this.ITEM_MARGIN_SIZE;
-        if (leftHeightTotal > rigthHeightTotal) {
+        if (leftHeightTotal <= rightHeightTotal) {
           goodsItemStyle = {
             left: "0px",
-            top: leftHightTotal + "px"
+            top: leftHeightTotal + "px"
           };
           leftHeightTotal += elHeight;
         } else {
           goodsItemStyle = {
-            left: "0px",
-            top: rigthHeightTotal + "px"
+            right: "0px",
+            top: rightHeightTotal + "px"
           };
-          rigthHeightTotal += elHeight;
+          rightHeightTotal += elHeight;
         }
         this.goodsItemStyle.push(goodsItemStyle);
       });
       this.goodsViewHeight =
-        leftHeightTotal > rigthHeightTotal ? leftHeightTotal : rigthHeightTotal;
+        leftHeightTotal > rightHeightTotal
+          ? leftHeightTotal
+          : rightHeightTotal + "px";
     }
   },
   created() {},
