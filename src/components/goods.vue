@@ -2,7 +2,7 @@
   <div
     class="goods goods-waterfall"
     :style="{
-      Height: goodsViewHeight
+      height: goodsViewHeight
     }"
   >
     <div
@@ -94,9 +94,9 @@ export default {
         this.goodsItemStyle.push(goodsItemStyle);
       });
       this.goodsViewHeight =
-        leftHeightTotal > rightHeightTotal
+        (leftHeightTotal > rightHeightTotal
           ? leftHeightTotal
-          : rightHeightTotal + "px";
+          : rightHeightTotal) + "px";
     }
   },
   created() {},
