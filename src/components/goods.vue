@@ -64,9 +64,9 @@ export default {
     },
     initImgStyles() {
       this.dataSource.forEach(item => {
-        let imgHeigth = this.imgHeight() + "px";
+        let imgHeight = this.imgHeight() + "px";
         this.imgStyles.push({
-          height: imgHeigth
+          height: imgHeight
         });
       });
     },
