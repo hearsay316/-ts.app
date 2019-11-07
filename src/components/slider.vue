@@ -4,11 +4,7 @@
     <!-- Additional required wrapper -->
     <div class="swiper-wrapper">
       <!-- Slides -->
-      <div
-        class="swiper-slide"
-        v-for="(item, index) of pices"
-        :key="item.id + index"
-      >
+      <div class="swiper-slide" v-for="(item, index) of pices" :key="item.id + index">
         <img class="swiper-slide-img" :src="item.icon" alt="item" />
       </div>
     </div>
@@ -49,6 +45,7 @@ export default {
         let mySwiper = new Swiper(".swiper-container", {
           // Optional parameters
           // direction: "vertical",
+          // 这个是一个测试
           loop: true,
           autoplay: {
             delay: 2500,
@@ -74,21 +71,25 @@ export default {
 </script>
 
 <style lang="stylus">
-  @import "~@css/style.styl"
+@import '~@css/style.styl';
+
 .swiper-container {
-    width: 100%;
+  width: 100%;
 }
-  .swiper-slide-img
-    width 100%
-    height:100%
-  .custom-bullet-class{
-    box-sizing: border-box;
-    border-radius: 7px;
-    height: 3px;
-    width: 8px;
-    background: hsla(0,0%,92.9%,.4);
-    margin: 0 2px;
-    display: inline-block;
-    opacity: 1;
-  }
+
+.swiper-slide-img {
+  width: 100%;
+  height: 100%;
+}
+
+.custom-bullet-class {
+  box-sizing: border-box;
+  border-radius: 7px;
+  height: 3px;
+  width: 8px;
+  background: hsla(0, 0%, 92.9%, 0.4);
+  margin: 0 2px;
+  display: inline-block;
+  opacity: 1;
+}
 </style>
