@@ -31,9 +31,8 @@
         />
       </div>
     </activity>
-<!--    商品列表组件-->
-    <goods>
-    </goods>
+    <!--    商品列表组件-->
+    <goods></goods>
   </div>
 </template>
 
