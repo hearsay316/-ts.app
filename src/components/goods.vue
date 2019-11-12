@@ -19,8 +19,15 @@
         :style="imgStyles[index]"
       />
       <div class="goods-item-desc">
-        <p class="goods-item-desc-name">
-          <span class="text-line-2">{{ item.name }}</span>
+        <p
+          class="goods-item-desc-name text-line-2"
+          :class="{ 'goods-item-desc-name-hint': !item.isHave }"
+        >
+          <!--suppress JSUnresolvedVariable -->
+          <direct v-if="item.isDirect"></direct>
+          <!--suppress JSUnresolvedVariable -->
+          <no-have v-if="!item.isHave"></no-have>
+          {{ item.name }}
         </p>
         <div class="goods-item-desc-data">
           <!--suppress JSUnresolvedVariable -->
@@ -36,6 +43,8 @@
 
 <script>
 import { ToGoods } from "../config/ajax/IndexApi";
+import direct from "@com/direct.vue";
+import noHave from "@com/noHave.vue";
 
 export default {
   name: "goods",
@@ -51,6 +60,10 @@ export default {
       goodsItemStyle: [],
       goodsViewHeight: 0
     };
+  },
+  components: {
+    direct,
+    noHave
   },
   methods: {
     /**
@@ -162,5 +175,8 @@ export default {
   }
   .goods-item-img{
     width:100%
+  }
+  .goods-item-desc-name-hint{
+    color:hintColor
   }
 </style>
