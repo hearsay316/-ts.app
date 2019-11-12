@@ -8,11 +8,15 @@
         src="@img/back.svg"
         alt="back"
       />
+      <slot name="nav-left"></slot>
     </div>
     <div class="navigationBar-center">
       <span>{{ pageName }}</span>
+      <slot name="nav-center"></slot>
     </div>
-    <div class="navigationBar-right"></div>
+    <div class="navigationBar-right">
+      <slot name="nav-right"></slot>
+    </div>
   </div>
 </template>
 
