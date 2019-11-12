@@ -2,6 +2,7 @@
 
 <template>
   <div class="index">
+    <navigationBar pageName="首页" :isShowBack="false"></navigationBar>
     <!--轮播图-->
     <slider class="index-picData" :pices="picData"></slider>
     <!--    -->
@@ -42,6 +43,8 @@ import activity from "@com/activity.vue";
 import modeOptions from "@com/modeOptions.vue";
 import seconds from "@com/seconds.vue";
 import goods from "@com/goods.vue";
+import navigationBar from "@com/navigationBar.vue";
+
 import {
   ToSwiperPic,
   ToActivityPic,
@@ -86,7 +89,8 @@ export default {
     activity,
     modeOptions,
     seconds,
-    goods
+    goods,
+    navigationBar
   }
 };
 </script>
