@@ -1,12 +1,17 @@
 <template>
   <div class="classify">
+    <navigationBar pageName="分类" :isShowBack="false"></navigationBar>
     classify
   </div>
 </template>
 
 <script>
+import navigationBar from "@com/navigationBar.vue";
 export default {
-  name: "classify"
+  name: "classify",
+  components: {
+    navigationBar
+  }
 };
 </script>
 

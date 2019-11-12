@@ -1,5 +1,6 @@
 <template>
   <div class="my">
+    <navigationBar pageName="个人中心" :isShowBack="false"></navigationBar>
     my
     <nut-button>
       Buttonrfrfrf
@@ -8,8 +9,12 @@
 </template>
 
 <script>
+import navigationBar from "@com/navigationBar.vue";
 export default {
   name: "my",
+  components: {
+    navigationBar
+  },
   data() {
     return {
       user: Array.from({ length: 1000 }).map((v, k) => k)
