@@ -3,7 +3,7 @@
     <div class="navigationBar-left">
       <!--默认是后退-->
       <img
-        v-if="isShowBack"
+        v-if="!isShowBack"
         class="navigationBar-left-img"
         src="@img/back.svg"
         alt="back"

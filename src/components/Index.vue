@@ -2,7 +2,21 @@
 
 <template>
   <div class="index">
-    <navigationBar pageName="首页" :isShowBack="false"></navigationBar>
+      <!--pageName="首页" :isShowBack="false"-->
+    <navigationBar>
+      <!--      左侧插槽-->
+      <template v-slot:nav-left>
+        <img class="navigationBar-left-img" src="@img/more-white.svg" alt="back" />
+      </template>
+      <!--      右侧插槽-->
+      <template v-slot:nav-center>
+        <p style="font-size: 32px">中间插槽</p>
+      </template>
+      <!--     右侧插槽 -->
+      <template v-slot:nav-right>
+          <img class="navigationBar-left-img" src="@img/message-white.svg" alt="back" />
+      </template>
+    </navigationBar>
     <!--轮播图-->
     <slider class="index-picData" :pices="picData"></slider>
     <!--    -->
