@@ -1,5 +1,5 @@
 <template>
-  <div class="navigationBar z-index-max">
+  <div class="navigationBar z-index-max" :class="{'bottom-line':pageName}">
     <div class="navigationBar-left">
       <!--默认是后退-->
       <img
@@ -11,7 +11,7 @@
       <slot name="nav-left"></slot>
     </div>
     <div class="navigationBar-center">
-      <span>{{ pageName }}</span>
+      <span class="page-title" v-if="pageName">{{ pageName }}</span>
       <slot name="nav-center"></slot>
     </div>
     <div class="navigationBar-right">
@@ -39,7 +39,6 @@ export default {
 <style lang="stylus" scoped>
 @import "~@css/style.styl"
    .navigationBar{
-
      width:100%
      height px2rem(44)
      line-height px2rem(44)
@@ -62,5 +61,8 @@ export default {
   }
   .page-title{
     font-size titleSize
+  }
+  .bottom-line{
+    border-bottom 1px solid lineColor
   }
 </style>
